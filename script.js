@@ -32,12 +32,15 @@ function renderMovies() {
     const title = document.createElement("h3") 
     title.textContent = movie.title 
 
-    const details = document.createElement("p") 
-    // TODO: Show the genre and Watched / Not watched status.
+    const genre = document.createElement("p")
+    genre.textContent = movie.genre
+
+    const watched = document.createElement("p")
+    watched.textContent = "Watched? " + movie.watched
 
     const toggleButton = document.createElement("button") 
     toggleButton.type = "button" 
-    // TODO: Set Mark Watched / Mark Unwatched as the button text.
+    toggleButton.textContent = "Watched? " + !movie.watched
     toggleButton.addEventListener("click", () => {
       watchlist.toggleWatched(index) 
       saveMovies() 
@@ -53,7 +56,7 @@ function renderMovies() {
       renderMovies()
     }) 
 
-    card.append(title, details, toggleButton, removeButton) 
+    card.append(title, genre, watched, toggleButton, removeButton) 
     movies.append(card) 
   }) 
   
@@ -63,7 +66,24 @@ function renderMovies() {
 }
 
 form.addEventListener("submit", (event) => {
-  // TODO (Step 5)
+  event.preventDefault()
+  const title = typeTitle.value.trim()
+  const genre = selectGenre.value
+
+  if (title === "") {
+    formMessage.textContent = "Enter a movie title."
+    return
+  }
+  if (genre === "") {
+    formMessage.textContent = "Choose a genre."
+    return
+  }
+  watchlist.movies.push({ title: title, genre: genre, watched: false })
+  saveMovies()
+  renderMovies()
+
+  formMessage.textContent = ""
+  typeTitle.value = ""
 }) 
 
 loadMovies() 

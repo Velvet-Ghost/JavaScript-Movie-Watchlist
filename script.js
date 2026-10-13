@@ -6,7 +6,7 @@ const movies = document.getElementById("movies")
 const emptyMessage = document.getElementById("emptyMessage") 
 
 const watchlist = {
-  movies: [{ title: "The Princess Bride", genre: "Adventure", watched: false }],
+  movies: [],
   toggleWatched(index) {
     this.movies[index].watched = !this.movies[index].watched
     console.log(this.movies[index].watched)
@@ -17,11 +17,20 @@ const watchlist = {
 } 
 
 function saveMovies() {
-  // TODO (Step 6)
+  localStorage.setItem("movies", JSON.stringify(watchlist.movies))
 }
 
 function loadMovies() {
-  // TODO (Step 6)
+  const saved = localStorage.getItem("movies")
+
+  if (saved === null) {
+    return
+  }
+  try {
+    watchlist.movies = JSON.parse(saved)
+  } catch {
+    watchlist.movies = []
+  }
 }
 
 function renderMovies() {
@@ -70,11 +79,11 @@ form.addEventListener("submit", (event) => {
   const title = typeTitle.value.trim()
   const genre = selectGenre.value
 
-  if (title === "") {
+  if (title == "") {
     formMessage.textContent = "Enter a movie title."
     return
   }
-  if (genre === "") {
+  if (genre == "") {
     formMessage.textContent = "Choose a genre."
     return
   }

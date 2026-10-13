@@ -5,19 +5,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Viktor's Movie Watchlist</title>
+    <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
-<body>
-    <h1>Movie Watchlist</h1>
-    <h3>Let's add a movie!</h3>
-    <form id="form" action="">
-        <div>
-            <label for="typeTitle"></label>
-            <input id="typeTitle" type="text">
+<body class="page">
+    <h1 class="page-title">Movie Watchlist</h1>
+    <h3 class="page-subtitle">Let's add a movie!</h3>
+    <form id="form" class="movie-form" action="">
+        <div class="form-row">
+            <label class="form-label" for="typeTitle"></label>
+            <input id="typeTitle" class="form-input" type="text">
 
-            <label for="selectGenre">Genre:</label>
-            <select id="selectGenre" name="selectGenre">
+            <label class="form-label" for="selectGenre">Genre:</label>
+            <select id="selectGenre" class="form-select" name="selectGenre">
                 <option value="">Choose a genre</option>
                 <option value="horror">Horror</option>
                 <option value="sci-fi">Science Fiction</option>
@@ -25,17 +26,17 @@
                 <option value="rom-com">Romantic Comedy</option>
             </select>
 
-            <button id="addMovie" type="submit">Add Movie</button>
+            <button id="addMovie" class="add-button" type="submit">Add Movie</button>
         </div>
 
-        <div>
-            <p id="formMessage"></p>
+        <div class="form-message-wrap">
+            <p id="formMessage" class="form-message"></p>
         </div>
 
     </form>
-    <div>
-        <ul id="movies"></ul>
-        <p id="emptyMessage"></p>
+    <div class="list-section">
+        <ul id="movies" class="movie-list"></ul>
+        <p id="emptyMessage" class="empty-message"></p>
     </div>
 </body>
 

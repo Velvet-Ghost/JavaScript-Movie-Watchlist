@@ -6,12 +6,13 @@ const movies = document.getElementById("movies")
 const emptyMessage = document.getElementById("emptyMessage") 
 
 const watchlist = {
-  movies: [],
+  movies: [{ title: "The Princess Bride", genre: "Adventure", watched: false }],
   toggleWatched(index) {
-    // TODO (Step 4)
+    this.movies[index].watched = !this.movies[index].watched
+    console.log(this.movies[index].watched)
   },
   removeMovie(index) {
-    // TODO (Step 4)
+    this.movies.splice(index, 1)
   }
 } 
 

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viktor's Movie Watchlist</title>
+</head>
+
+<body>
+    <h1>Movie Watchlist</h1>
+    <h3>Let's add a movie!</h3>
+    <form id="form" action="">
+        <div>
+            <label for="typeTitle"></label>
+            <input id="typeTitle" type="text">
+
+            <label for="selectGenre">Genre:</label>
+
+            <select id="selectGenre" name="selectGenre">
+                <option value="">Choose a genre</option>
+            </select>
+
+            <button id="addMovie" type="submit">Add Movie</button>
+        </div>
+
+        <div>
+            <p id="formMessage"></p>
+        </div>
+
+        <div>
+            <ul id="movies">
+                <p id="emptyMessage"></p>
+            </ul>
+        </div>
+    </form>
+</body>
+
+</html>
